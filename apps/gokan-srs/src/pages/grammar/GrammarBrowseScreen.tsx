@@ -92,7 +92,7 @@ function PointCard({ row }: { row: GrammarBrowseRow }) {
     return (
         <Link
             to={`/grammar/${row.id}`}
-            className={`block rounded-lg border bg-surface p-3 transition-colors hover:bg-surface-hover ${isVariant ? 'border-dashed border-divider' : 'border-divider'}`}
+            className={`block min-w-0 rounded-lg border bg-surface p-3 transition-colors hover:bg-surface-hover ${isVariant ? 'border-dashed border-divider' : 'border-divider'}`}
         >
             <div className="flex items-start justify-between gap-2 mb-1">
                 <div className="min-w-0">
@@ -276,14 +276,14 @@ export function GrammarBrowseScreen() {
 
     if (failed) {
         return (
-            <div className="max-w-6xl mx-auto px-4 py-8">
+            <div className="w-full max-w-6xl mx-auto px-4 py-8">
                 <p className="text-secondary font-gothic">Could not load the grammar index.</p>
             </div>
         );
     }
     if (!index) {
         return (
-            <div className="max-w-6xl mx-auto px-4 py-8">
+            <div className="w-full max-w-6xl mx-auto px-4 py-8">
                 <p className="text-secondary font-gothic">Loading grammar dataset...</p>
             </div>
         );
@@ -306,7 +306,7 @@ export function GrammarBrowseScreen() {
     const presentKinds = (Object.keys(KIND_STYLE) as Kind[]).filter(kind => (stats.byKind[kind] ?? 0) > 0);
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="w-full max-w-6xl mx-auto px-4 py-6">
             <Link to="/grammar" className="text-accent font-gothic text-sm hover:underline">
                 <ArrowLeft className="inline-block w-4 h-4 mr-1 align-text-bottom" aria-hidden="true" />Back
             </Link>
